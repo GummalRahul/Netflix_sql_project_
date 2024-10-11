@@ -16,7 +16,7 @@ The data for this project is sourced from the Kaggle dataset:
 
 - The Dataset Link [Netflix_Dataset](https://www.kaggle.com/datasets/paramvir705/netflix-dataset)
 
-## Schema ##
+## Schema of Netflix Table ##
 
 ``` sql
 DROP TABLE IF EXISTS netflix;
