@@ -2,4 +2,4 @@
 
 ![Netflix](https://github.com/GummalRahul/Netflix_sql_project_/blob/main/Netflix.logo.jpg)
 
-## ** Objectives **
+## **Objectives** 
