@@ -5,4 +5,5 @@
 SELECT DISTINCT TRIM((value)) AS Genre
 FROM netfilx_data
 CROSS APPLY STRING_SPLIT(listed_in, ',');
-'''
+
+
