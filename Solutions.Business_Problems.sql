@@ -1,7 +1,6 @@
 -- Solutions of the Business Problems
 -- 1. How can we split the combined genres in the listed_in column so each genre appears in its own row for detailed genre analysis?.
 -- A. 
-
 SELECT DISTINCT 
     TRIM((value)) AS Genre
 FROM 
@@ -39,5 +38,41 @@ GROUP BY
 ORDER BY 
     Month_Added, Content_Count DESC;
 
-
+-- 3. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution?
+-- A.
+WITH DurationCategories AS 
+(	
+	SELECT
+        type,
+        title,
+        rating,
+        CASE 
+            WHEN type = 'TV Show' THEN
+                CASE
+                    WHEN TRY_CAST(LEFT(duration, CHARINDEX(' ', duration) - 1) AS INT) <= 1 THEN 'Short'
+                    WHEN TRY_CAST(LEFT(duration, CHARINDEX(' ', duration) - 1) AS INT) BETWEEN 2 AND 3 THEN 'Medium'
+                    ELSE 'Long'
+                END
+            WHEN type = 'Movie' THEN
+                CASE
+                    WHEN TRY_CAST(LEFT(duration, CHARINDEX(' ', duration) - 1) AS INT) < 90 THEN 'Short'
+                    WHEN TRY_CAST(LEFT(duration, CHARINDEX(' ', duration) - 1) AS INT) BETWEEN 90 AND 120 THEN 'Medium'
+                    ELSE 'Long'
+                END
+        END AS Duration_Category
+    FROM 
+        netfilx_data 
+    WHERE 
+        TRY_CAST(LEFT(duration, CHARINDEX(' ', duration) - 1) AS INT) IS NOT NULL 
+)
+SELECT 
+    type,
+    Duration_Category,
+    COUNT(*) AS Content_Count
+from
+    DurationCategories 
+GROUP BY 
+    type,Duration_Category
+ORDER BY 
+    type, Duration_Category;
 
