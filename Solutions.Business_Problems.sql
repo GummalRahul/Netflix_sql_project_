@@ -8,7 +8,7 @@ FROM
 CROSS APPLY 
     STRING_SPLIT(listed_in, ',');
 
--- 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions
+-- 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions?
 -- A.
 select * from netfilx_data
 where country != 'United States' and country is not null
