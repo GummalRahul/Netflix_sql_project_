@@ -48,7 +48,13 @@ CROSS APPLY
     STRING_SPLIT(listed_in, ',');
 ```
 
-### 2. Find the distribution of TV Shows and Movies across genres and seasons?
+### 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions?
+```sql
+select * from netfilx_data
+where country != 'United States' and country is not null
+```
+
+### 3. Find the distribution of TV Shows and Movies across genres and seasons?
 ``` sql
 SELECT 
     MONTH(TRY_CONVERT(DATE, date_added, 101)) AS Month_Added,
@@ -78,7 +84,8 @@ GROUP BY
 ORDER BY 
     Month_Added, Content_Count DESC;
 ```
-### 3. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution? 
+
+### 4. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution? 
 ``` sql
 WITH DurationCategories AS 
 (	
