@@ -81,3 +81,17 @@ GROUP BY
 ORDER BY 
     type, Duration_Category;
 
+-- 5. Find the top 5 countries with the highest number of movies in the Netflix?
+-- A.
+with CTE as 
+(
+select country, 
+count(type) as Movie_count,
+row_number() over(order by count(type) desc) as rn
+from netfilx_data
+where type = 'Movie'and country is not null
+group by country
+)
+select country,Movie_count from CTE
+where rn <= 5
+order by rn;
