@@ -114,3 +114,22 @@ string_split(director,',')
 select title,director
 from Movie_Director
 where Director is not null and Director like '%Rajiv Chilaka%'and type = 'Movie';
+
+
+-- 7. Classify content as 'Bad' if the description contains 'kill' or 'violence,' otherwise label it as 'Good.' Count the number of items in each category?
+-- A. 
+select count(*) as movie_count,
+case 
+when description like '%kill%' or description like '%Voilence%' then 'Bad'
+else 'good'
+end as Movies_Category
+from netfilx_data
+where description is not null
+group by
+case 
+when description like '%kill%' or description like '%Voilence%' then 'Bad'
+else 'good'
+end
+
+
+-- 8. 
