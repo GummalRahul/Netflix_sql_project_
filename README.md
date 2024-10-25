@@ -139,3 +139,19 @@ select country,Movie_count from Movies_count
 where rn <= 5
 order by rn;
 ```
+
+### 6. List all the movies directed by Rajiv Chilaka?
+```sql
+with Movie_Director as 
+(
+select type, title, trim ((value)) as Director
+from 
+netfilx_data
+cross apply 
+string_split(director,',')
+)
+select title,director
+from Movie_Director
+where Director is not null and Director like '%Rajiv Chilaka%'and type = 'Movie';
+```
+### 7.
