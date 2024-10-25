@@ -132,4 +132,18 @@ else 'good'
 end
 
 
--- 8. 
+-- 8. Analyze the lag between a title’s original release year and the date it was added to Netflix?
+-- A. 
+WITH CTE
+AS
+(
+SELECT show_id,
+type,title,
+date_added,
+release_year,
+DATEDIFF(MM,CAST(release_year AS Date),CAST(date_added AS DATE))AS lag_in_months 
+from netfilx_data WHERE date_added <>'TV-PG' AND release_year <>'40 min'
+)SELECT * FROM CTE
+
+
+-- 9. 
