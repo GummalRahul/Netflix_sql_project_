@@ -4,3 +4,4 @@
 3. Find the distribution of TV Shows and Movies across genres and seasons?
 4. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution?
 5. Find the top 5 countries with the highest number of movies in the Netflix?
+6. List all the movies directed by Rajiv Chilaka?
