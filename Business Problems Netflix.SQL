@@ -5,3 +5,4 @@
 4. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution?
 5. Find the top 5 countries with the highest number of movies in the Netflix?
 6. List all the movies directed by Rajiv Chilaka?
+7. Classify content as 'Bad' if the description contains 'kill' or 'violence,' otherwise label it as 'Good.' Count the number of items in each category
