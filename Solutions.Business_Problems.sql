@@ -8,10 +8,12 @@ FROM
 CROSS APPLY 
     STRING_SPLIT(listed_in, ',');
 
+
 -- 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions?
 -- A.
 select * from netfilx_data
 where country != 'United States' and country is not null
+
 	
 -- 3. Find the distribution of TV Shows and Movies across genres and seasons?
 -- A.
@@ -42,6 +44,7 @@ GROUP BY
     type
 ORDER BY 
     Month_Added, Content_Count DESC;
+
 
 -- 4. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution?
 -- A.
@@ -81,6 +84,7 @@ GROUP BY
 ORDER BY 
     type, Duration_Category;
 
+
 -- 5. Find the top 5 countries with the highest number of movies in the Netflix?
 -- A.
 with Movies_count as 
@@ -95,6 +99,7 @@ group by country
 select country,Movie_count from Movies_count
 where rn <= 5
 order by rn;
+
 
 -- 6. List all the movies directed by Rajiv Chilaka?
 -- A.
