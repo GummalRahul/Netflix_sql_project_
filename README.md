@@ -154,6 +154,7 @@ select title,director
 from Movie_Director
 where Director is not null and Director like '%Rajiv Chilaka%'and type = 'Movie';
 ```
+
 ### 7. Classify content as 'Bad' if the description contains 'kill' or 'violence,' otherwise label it as 'Good.' Count the number of items in each category
 ```sql
 select count(*) as movie_count,
