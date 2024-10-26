@@ -225,7 +225,7 @@ select * from Avg_duration;
 
 ### Findindgs and Conclusion
 - **Genre Analysis:**
-- **Findings:** This allows for a more detailed analysis of genre distribution, helping to identify which genres are most prevalent and potentially underrepresented.
-- **Business Impact** By understanding genre popularity, Netflix can tailor its content acquisition and production strategies to align with viewer preferences, potentially increasing viewer engagement and satisfaction.
+> **Findings:** This allows for a more detailed analysis of genre distribution, helping to identify which genres are most prevalent and potentially underrepresented.
+> **Business Impact** By understanding genre popularity, Netflix can tailor its content acquisition and production strategies to align with viewer preferences, potentially increasing viewer engagement and satisfaction.
 
 
