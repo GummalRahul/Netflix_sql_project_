@@ -7,3 +7,4 @@
 6. List all the movies directed by Rajiv Chilaka?
 7. Classify content as 'Bad' if the description contains 'kill' or 'violence,' otherwise label it as 'Good.' Count the number of items in each category?
 8. Analyze the lag between a title’s original release year and the date it was added to Netflix?
+9. Find the top 10 actors who have appeared in the highest number of movies produced in India?
