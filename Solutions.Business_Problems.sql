@@ -12,7 +12,7 @@ CROSS APPLY
 -- 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions?
 -- A.
 select * from netfilx_data
-where country != 'United States' and country is not null
+where country != 'United States' and country is not null;
 
 	
 -- 3. Find the distribution of TV Shows and Movies across genres and seasons?
@@ -129,7 +129,7 @@ group by
 case 
 when description like '%kill%' or description like '%Voilence%' then 'Bad'
 else 'good'
-end
+end;
 
 
 -- 8. Analyze the lag between a title’s original release year and the date it was added to Netflix?
@@ -143,7 +143,29 @@ date_added,
 release_year,
 DATEDIFF(MM,CAST(release_year AS Date),CAST(date_added AS DATE))AS lag_in_months 
 from netfilx_data WHERE date_added <>'TV-PG' AND release_year <>'40 min'
-)SELECT * FROM CTE
+)SELECT * FROM CTE;
 
 
--- 9. 
+-- 9. Find the top 10 actors who have appeared in the highest number of movies produced in India.
+-- A.
+with Top_Actors as
+(
+select type,
+country,trim((value))as Actor,
+count(*) over (partition by trim (value)) as Actor_count
+from
+netfilx_data
+cross apply 
+string_split(cast,',')
+where country = 'India' and type = 'Movie'
+)
+select top 10 Actor,
+Actor_count
+from
+Top_Actors
+group by Actor,Actor_count
+order by Actor_count desc;
+
+
+-- 10. 
+-- A. 
