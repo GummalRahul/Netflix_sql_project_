@@ -167,7 +167,7 @@ group by Actor,Actor_count
 order by Actor_count desc;
 
 
--- 10. 
+-- 10. Find the Average duration of movies for each genre?
 -- A. 
 with Avg_duration as
 (
