@@ -206,4 +206,18 @@ group by Actor,Actor_count
 order by Actor_count desc
 ```
 
-### 10. 
+### 10. Find the Average duration of movies for each genre?
+```sql
+with Avg_duration as
+(
+select trim((value)) as genre,
+Avg(cast(Replace(duration,' min','') as int)) as Duration,
+type
+from
+netfilx_data
+cross apply string_split(listed_in,',')
+where type = 'Movie' and value != 'Movies'
+group by trim(value),type
+)
+select * from Avg_duration;
+```
