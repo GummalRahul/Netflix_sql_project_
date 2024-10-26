@@ -185,3 +185,25 @@ from netfilx_data WHERE date_added <>'TV-PG' AND release_year <>'40 min'
 )SELECT * FROM CTE
 ```
 
+### 9. Find the top 10 actors who have appeared in the highest number of movies produced in India.
+```sql
+with Top_Actors as
+(
+select type,
+country,trim((value))as Actor,
+count(*) over (partition by trim (value)) as Actor_count
+from
+netfilx_data
+cross apply 
+string_split(cast,',')
+where country = 'India' and type = 'Movie'
+)
+select top 10 Actor,
+Actor_count
+from
+Top_Actors
+group by Actor,Actor_count
+order by Actor_count desc
+```
+
+### 10. 
