@@ -239,8 +239,9 @@ select * from Avg_duration;
 
 - **Distribution of TV Shows and Movies Across Seasons:**
 
-1. **Findings:** This helps to identify seasonal trends in content additions, which will guide release plans..
+1. **Findings:** This helps to identify seasonal trends in content additions, which will guide release plans.
 
 2. **Business Impact:** By aligning content releases with seasonal trends, Netflix can optimize viewer engagement and maximize the impact of new content launches.
 
-*This analysis offers a holistic perspective on Netflix's content portfolio, providing valuable insights to guide strategic decisions and optimize content offerings for broader audience engagement.*
+*This analysis provides actionable insights to enhance Netflix's strategic decision-making, driving greater audience engagement and global market reach.*
+
