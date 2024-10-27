@@ -226,8 +226,21 @@ select * from Avg_duration;
 ### Findings and Conclusion
 - **Genre Analysis:**
 
-1. **Findings:**  Genre Analysis helps to identify which genres are most prevalent and potentially underrepresented.
+1. **Findings:** Genre Analysis helps to identify which genres are most prevalent and potentially underrepresented.
 
-2. **Business Impact**  By understanding genre popularity, Netflix can tailor its content acquisition and production strategies to align with viewer preferences, potentially increasing viewer engagement and satisfaction.
+2. **Business Impact:** By understanding genre popularity, Netflix can tailor its content acquisition and production strategies to align with viewer preferences, potentially increasing viewer engagement and satisfaction.
+
+- **International Content Catalog:**
+
+1. **Findings:** It provides insights into Netflix's global market penetration and the diversity of its content offerings outside the U.S.
+
+2. **Business Impact:** Understanding international content distribution can help Netflix identify growth opportunities in specific regions and adjust its content strategy to better serve diverse audiences.
 
 
+- **Distribution of TV Shows and Movies Across Seasons:**
+
+1. **Findings:** This helps to identify seasonal trends in content additions, which will guide release plans..
+
+2. **Business Impact:** By aligning content releases with seasonal trends, Netflix can optimize viewer engagement and maximize the impact of new content launches.
+
+*This analysis offers a holistic perspective on Netflix's content portfolio, providing valuable insights to guide strategic decisions and optimize content offerings for broader audience engagement.*
