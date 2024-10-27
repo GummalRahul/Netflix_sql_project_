@@ -91,8 +91,6 @@ WITH DurationCategories AS
 (	
 	SELECT
         type,
-        title,
-        rating,
         CASE 
             WHEN type = 'TV Show' THEN
                 CASE
