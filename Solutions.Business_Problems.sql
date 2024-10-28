@@ -25,11 +25,12 @@ SELECT
         WHEN MONTH(TRY_CONVERT(DATE, date_added, 101)) IN (6, 7, 8) THEN 'Summer'
         ELSE 'Fall'
     END AS Season_Added,
-    listed_in AS Genre,
+    trim ((Value)) as genre,
     type AS Content_Type,
     COUNT(*) AS Content_Count
 FROM 
     netfilx_data
+	cross apply string_split (listed_in,',')
 WHERE 
     TRY_CONVERT(DATE, date_added, 101) IS NOT NULL
 GROUP BY 
@@ -40,11 +41,10 @@ GROUP BY
         WHEN MONTH(TRY_CONVERT(DATE, date_added, 101)) IN (6, 7, 8) THEN 'Summer'
         ELSE 'Fall'
     END,
-    listed_in,
+    trim(value),
     type
 ORDER BY 
     Month_Added, Content_Count DESC;
-
 
 -- 4. Categorize Movies and TV Shows as Short ,Medium,or Long based on their runtime and find the content distribution?
 -- A.
