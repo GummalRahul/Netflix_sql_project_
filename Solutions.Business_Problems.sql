@@ -11,8 +11,35 @@ CROSS APPLY
 
 -- 2. Analyze Netflix's international content catalog (excluding U.S.) to gain insights into its global market penetration in different regions?
 -- A.
-select * from netfilx_data
-where country != 'United States' and country is not null;
+WITH country_movie_counts AS (
+    SELECT 
+        TRIM(value) AS country,
+        COUNT(*) AS movie_count
+    FROM 
+        netfilx_data
+    CROSS APPLY STRING_SPLIT(country, ',')
+    WHERE 
+        TRIM(value) != 'United States' 
+        AND TRIM(value) IS NOT NULL
+        AND type = 'Movie' -- Only consider movies
+    GROUP BY 
+        TRIM(value)
+)
+SELECT 
+    cmc.country,
+    cmc.movie_count,
+    (cmc.movie_count * 100.0) / (
+        SELECT COUNT(*) 
+        FROM netfilx_data
+        CROSS APPLY STRING_SPLIT(country, ',')
+        WHERE TRIM(value) != 'United States'
+        AND TRIM(value) IS NOT NULL
+        AND type = 'Movie'
+    ) AS market_penetration
+FROM 
+    country_movie_counts cmc
+ORDER BY 
+    market_penetration DESC;
 
 	
 -- 3. Find the distribution of TV Shows and Movies across genres and seasons?
